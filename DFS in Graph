@@ -1,0 +1,107 @@
+
+// DFS in Graph 
+
+
+#include<iostream>
+#include<list>
+
+using namespace std;
+
+class Graph
+{
+	int V;
+	list<int> *adj;
+
+public :
+	Graph(int V);
+	void addEdge(int v,int w);
+	void DFS(int s); // s is the starting node
+	void DFS(); // the general DFS
+	void DFSutil(int s, bool visited[]);
+};
+
+Graph::Graph(int V)
+{
+	this->V = V;
+	adj = new list<int>[V];
+
+}
+
+
+void Graph::addEdge(int v, int w)
+{
+	adj[v].push_back(w);
+}
+
+
+void Graph::DFSutil(int v, bool visited [])
+{
+
+	visited[v] =true;
+	cout<<v<<" ";
+	// create a queue
+
+		list<int>::iterator i;
+
+		// get all adj vertex of the dequeued vertex s
+
+		for(i = adj[v].begin();i!=adj[v].end();++i)
+		{
+			if(!visited[*i])
+			{
+				DFSutil(*i,visited);
+			}
+		
+       }
+
+}
+void Graph::DFS(int s)
+{
+	bool *visited = new bool[V];
+	for(int i=0;i<V;i++)
+	{
+		visited[i]=false;
+	}
+
+	// call recursive helper func to print DFS traversal
+	DFSutil(s,visited);
+}
+
+void Graph::DFS()
+{
+	bool *visited = new bool[V];
+	for(int i=0;i<V;i++)
+	{
+		visited[i]=false;
+	}
+
+	// call DFS recursively 
+	for(int i=0;i<V;i++)
+	{
+		if(visited[i]==false)
+			DFSutil(i,visited);
+	}
+
+}
+
+int main()
+{
+	cout<<"hello world";
+
+	Graph g(4);
+
+	g.addEdge(2, 0);
+    g.addEdge(2, 3);
+	g.addEdge(0,1);
+	g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    
+    g.addEdge(3, 3);
+
+	cout<<"the DFS is"<<endl;
+
+	g.DFS(2);
+	getchar();
+	return 0;
+}
+
