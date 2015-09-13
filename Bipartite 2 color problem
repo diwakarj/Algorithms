@@ -1,0 +1,65 @@
+// * bipartite graph : two color problem
+
+/*
+#include <iostream>
+#include <queue>
+
+#define V 4
+
+using namespace std;
+
+bool isbipartite(int G[][V], int src)
+{
+	cout<<"inside func"<<endl;
+
+
+	int colorarr[V];
+
+	for(int i=0;i<V;i++)
+		colorarr[i]=-1;
+
+		colorarr[src]=1;
+
+	queue<int> q;
+	q.push(src);
+
+	while(q.empty()==false)
+	{
+
+		int u= q.front();
+		q.pop();
+
+		for(int v=0;v<V;++v)
+		{
+			if(G[u][v]&&colorarr[v]==-1)
+			{
+				colorarr[v]=1-colorarr[u];
+				q.push(v);
+			}
+			else if(G[u][v]&&colorarr[v]==colorarr[u])
+				return false;
+
+		}
+
+	}
+
+	return true;
+
+}
+
+int main()
+{
+	cout<<"hello world"<<endl;
+	
+    int G[][V] = {{0, 1, 0, 1},
+        {1, 0, 1, 0},
+        {0, 1, 0, 1},
+        {1, 0, 1, 0}
+    };
+ 
+    isbipartite(G, 0) ? cout << "Yes" : cout << "No";
+
+	getchar();
+	return 0;
+}
+*/
