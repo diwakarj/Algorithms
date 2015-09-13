@@ -1,0 +1,90 @@
+// topological sort using stack
+
+/*
+#include<iostream>
+#include <list>
+#include <stack>
+
+using namespace std;
+
+
+class Graph {
+
+	int V;
+	list<int> *adj;
+    void topologicalsortutil(int v, bool *visited,stack<int> &s);
+
+public:
+	void addEdge(int v,int w);
+	Graph(int v);
+
+	void topological();
+};
+
+Graph::Graph(int v)
+{
+	this->V=v;
+
+	adj = new list<int>[v];
+}
+
+void Graph::addEdge(int v,int w)
+{
+	adj[v].push_back(w);
+}
+
+
+void Graph::topological()
+{
+	bool *visited = new bool[V];
+
+	stack<int> stack;
+
+	for(int i=0;i<V;i++)
+		visited[i] = false;
+
+	for(int i=0;i<V;i++)
+	   if(!visited[i])
+		   topologicalsortutil(i,visited,stack);
+
+	while(stack.empty()==false)
+	{
+		cout<<stack.top()<<" ";
+		stack.pop();
+	}
+
+
+}
+
+void Graph::topologicalsortutil(int v, bool *visited, stack<int> &stack)
+{
+	visited[v]=true;
+
+	list<int>::iterator i;
+
+	for(i=adj[v].begin();i!=adj[v].end();++i)
+		if(!visited[*i])
+			topologicalsortutil(*i,visited,stack);
+
+	stack.push(v);
+}
+
+int main()
+{
+	cout<<"hello world"<<endl;
+
+	Graph g(6);
+    g.addEdge(5, 2);
+    g.addEdge(5, 0);
+    g.addEdge(4, 0);
+    g.addEdge(4, 1);
+    g.addEdge(2, 3);
+    g.addEdge(3, 1);
+ 
+    cout << "Following is a Topological Sort of the given graph \n";
+    g.topological();
+
+	getchar();
+	return 0;
+}
+*/
