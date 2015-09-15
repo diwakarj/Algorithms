@@ -1,0 +1,90 @@
+
+// boggle : find all possible words of character. 
+//   the last recurtion is not clear????
+
+/*
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+#define N 3
+#define M 3
+
+string Dictionary[] = {"GEEKS", "FOR", "QUIZ", "GO"};
+int wordsnum = sizeof(Dictionary)/sizeof(Dictionary[0]);
+
+int Numofrun =0;
+
+bool isword(string &str)
+{
+	for(int i=0;i<wordsnum;i++)
+	if(str.compare(Dictionary[i])==0)
+		return true;
+
+	return false;
+}
+
+
+void findwordutil(char boggle[M][N],bool visited[M][N],int row, int col,string str)
+{
+
+	visited[row][col] = true;
+
+	str += boggle[row][col];
+
+	
+	Numofrun++;
+	
+	
+	if(isword(str))
+		cout<<str<<endl;
+
+	
+		for(int newrow=row-1;newrow<=row+1&&newrow<M;newrow++)
+		for(int newcol=col-1;newcol<=col+1&&newcol<N;newcol++)
+			if(newrow>=0 && newcol>=0 && !visited[newrow][newcol])
+				findwordutil(boggle,visited,newrow,newcol,str);
+
+
+	//cout<<str.length()<<endl;	 
+	str.erase(str.length()-1);  // how it works is not clear....needs to understand
+	//cout<<"str is"<<str;
+	//cout<<str.length()<<endl;
+
+		visited[row][col] = false;
+
+
+}
+
+void findword(char boggle[M][N])
+{
+	bool visited[M][N] = {{false}};
+
+	string str = "";
+
+	for(int i=0;i<M;i++)
+		for(int j=0;j<N;j++)
+			findwordutil(boggle,visited,i,j,str);
+}
+
+
+int main()
+{
+	char boggle[M][N] = {{'G','I','Z'},
+                         {'U','E','K'},
+                         {'Q','S','E'}};
+ 
+    cout << "Following words of dictionary are present\n";
+    findword(boggle);
+
+	cout<<"the number of run is "<<Numofrun<<endl;
+
+	getchar();
+    return 0;
+
+}
+
+*/
+
