@@ -1,0 +1,95 @@
+
+// min cash flow problem
+
+/*
+
+#include <iostream>
+#include <queue>
+
+#define N 3 
+
+using namespace std;
+
+int GetMin(int arr [])
+{
+	int min =0;
+
+	for(int x=1;x<N;x++)
+	 if(arr[x]<arr[min])
+			min = x;
+	return min;
+}
+
+int GetMax(int arr [])
+{
+	int max =0;
+
+	for(int x=1;x<N;x++)
+	   if(arr[x]>arr[max])
+			max = x;
+
+	return max;
+}
+
+int minof2(int x,int y)
+{
+	return (x<y)?x:y;
+}
+
+
+void CashFlowRec(int costarr[])
+{
+
+
+	int mincash = GetMin(costarr);
+	int maxcash = GetMax(costarr);
+
+	
+	if(costarr[mincash]==0 && costarr[maxcash]==0)
+		return;
+
+	int min = minof2(-costarr[mincash],costarr[maxcash]);
+	
+	costarr[maxcash]-=min; // credit is paid to
+	costarr[mincash]+=min; // debited from
+
+	cout<<mincash<<" pays "<<min<<" to "<<maxcash<<endl;
+
+	CashFlowRec(costarr);
+}
+
+
+void MinCashflow(int Graph[][N])
+{
+
+	int costarr [N] ={0};
+
+	for(int r=0;r<N;r++)
+		for(int c=0;c<N;c++)
+			costarr[r]+=Graph[c][r] - Graph[r][c];
+
+	cout<<"cost arr start"<<endl;
+	for(int r=0;r<N;r++)
+		cout<<costarr[r]<<endl;
+	cout<<"cost arr ends"<<endl;
+
+	CashFlowRec(costarr);
+
+}
+
+int main()
+{
+
+	int graph[N][N] = { {0, 1000, 2000},
+                        {0, 0, 5000},
+                        {0, 0, 0},};
+ 
+    // Print the solution
+    MinCashflow(graph);
+
+	getchar();
+    return 0;
+
+}
+
+*/
